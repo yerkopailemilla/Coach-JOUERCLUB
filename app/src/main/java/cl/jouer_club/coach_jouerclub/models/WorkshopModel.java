@@ -1,29 +1,61 @@
 package cl.jouer_club.coach_jouerclub.models;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.List;
 
 public class WorkshopModel {
 
-    @SerializedName("id")
-    private int workshop_id;
+    @SerializedName("identificador")
+    @Expose
+    private int identificador;
+    @SerializedName("nombre")
+    @Expose
     private String nombre;
+    @SerializedName("descripcion")
+    @Expose
     private String descripcion;
+    @SerializedName("latitud")
+    @Expose
     private String latitud;
+    @SerializedName("longitud")
+    @Expose
     private String longitud;
+    @SerializedName("inicio")
+    @Expose
     private String inicio;
+    @SerializedName("termino")
+    @Expose
     private String termino;
+    @SerializedName("estado")
+    @Expose
     private String estado;
-    private int instructor;
+    @SerializedName("instructor")
+    @Expose
+    private Integer instructor;
+    @SerializedName("fechaCreacion")
+    @Expose
+    private String fechaCreacion;
+    @SerializedName("fechaActualizacion")
+    @Expose
+    private String fechaActualizacion;
+    @SerializedName("fechaEliminacion")
+    @Expose
+    private String fechaEliminacion = null;
+    @SerializedName("links")
+    @Expose
+    private List<Link> links = null;
 
     public WorkshopModel() {
     }
 
-    public int getWorkshop_id() {
-        return workshop_id;
+    public int getIdentificador() {
+        return identificador;
     }
 
-    public void setWorkshop_id(int workshop_id) {
-        this.workshop_id = workshop_id;
+    public void setIdentificador(int identificador) {
+        this.identificador = identificador;
     }
 
     public String getNombre() {
@@ -82,11 +114,43 @@ public class WorkshopModel {
         this.estado = estado;
     }
 
-    public int getInstructor() {
+    public Integer getInstructor() {
         return instructor;
     }
 
-    public void setInstructor(int instructor) {
+    public void setInstructor(Integer instructor) {
         this.instructor = instructor;
+    }
+
+    public String getFechaCreacion() {
+        return fechaCreacion;
+    }
+
+    public void setFechaCreacion(String fechaCreacion) {
+        this.fechaCreacion = fechaCreacion;
+    }
+
+    public String getFechaActualizacion() {
+        return fechaActualizacion;
+    }
+
+    public void setFechaActualizacion(String fechaActualizacion) {
+        this.fechaActualizacion = fechaActualizacion;
+    }
+
+    public String getFechaEliminacion() {
+        return fechaEliminacion;
+    }
+
+    public void setFechaEliminacion(String fechaEliminacion) {
+        this.fechaEliminacion = fechaEliminacion;
+    }
+
+    public List<Link> getLinks() {
+        return links;
+    }
+
+    public void setLinks(List<Link> links) {
+        this.links = links;
     }
 }

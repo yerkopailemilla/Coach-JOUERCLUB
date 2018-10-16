@@ -7,14 +7,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.List;
+
 import cl.jouer_club.coach_jouerclub.R;
 import cl.jouer_club.coach_jouerclub.models.WorkshopModel;
 
 public class WorkshopsAdapter extends RecyclerView.Adapter<WorkshopsAdapter.WorkshopsViewHolder>{
 
-    private WorkshopModel[] workshops;
+    private List<WorkshopModel> workshops;
 
-    public WorkshopsAdapter(WorkshopModel[] workshops) {
+    public WorkshopsAdapter(List<WorkshopModel> workshops) {
         this.workshops = workshops;
     }
 
@@ -27,8 +29,8 @@ public class WorkshopsAdapter extends RecyclerView.Adapter<WorkshopsAdapter.Work
 
     @Override
     public void onBindViewHolder(@NonNull WorkshopsViewHolder holder, int position) {
-        String name = workshops[position].getNombre();
-        String description = workshops[position].getDescripcion();
+        String name = workshops.get(position).getNombre();
+        String description = workshops.get(position).getDescripcion();
 
         holder.workshop_name_tv.setText(name);
         holder.workshop_description_tv.setText(description);
@@ -37,7 +39,7 @@ public class WorkshopsAdapter extends RecyclerView.Adapter<WorkshopsAdapter.Work
 
     @Override
     public int getItemCount() {
-        return workshops.length;
+        return workshops.size();
     }
 
     public class WorkshopsViewHolder extends RecyclerView.ViewHolder{

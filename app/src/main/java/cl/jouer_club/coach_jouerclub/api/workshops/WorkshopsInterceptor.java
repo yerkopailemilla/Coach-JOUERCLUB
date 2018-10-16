@@ -3,10 +3,13 @@ package cl.jouer_club.coach_jouerclub.api.workshops;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
+import cl.jouer_club.coach_jouerclub.BuildConfig;
+import cl.jouer_club.coach_jouerclub.api.workshops.WorkshopService;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -20,6 +23,14 @@ public class WorkshopsInterceptor {
                 .connectTimeout(60, TimeUnit.SECONDS)
                 .readTimeout(60, TimeUnit.SECONDS)
                 .writeTimeout(60, TimeUnit.SECONDS);
+
+        HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
+        logging.setLevel(HttpLoggingInterceptor.Level.BODY);
+
+        //Debug de requests/responses solo en ambiente de desarrollo
+        if (BuildConfig.DEBUG){
+            httpClient.addInterceptor(logging);
+        }
 
         httpClient.addInterceptor(new Interceptor() {
             @Override
