@@ -1,4 +1,4 @@
-package cl.jouer_club.coach_jouerclub.views;
+package cl.jouer_club.coach_jouerclub.views.main;
 
 import android.graphics.PorterDuff;
 import android.support.annotation.NonNull;
@@ -13,6 +13,8 @@ import android.support.design.widget.BottomNavigationView;
 
 import cl.jouer_club.coach_jouerclub.R;
 import cl.jouer_club.coach_jouerclub.utils.Tools;
+import cl.jouer_club.coach_jouerclub.views.ProfileFragment;
+import cl.jouer_club.coach_jouerclub.views.workshops.WorkshopFragment;
 
 public class MainActivity extends AppCompatActivity {
 

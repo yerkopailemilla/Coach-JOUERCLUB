@@ -1,4 +1,4 @@
-package cl.jouer_club.coach_jouerclub.api.workshops;
+package cl.jouer_club.coach_jouerclub.api.workshops.get;
 
 import cl.jouer_club.coach_jouerclub.models.WorkshopModel;
 import cl.jouer_club.coach_jouerclub.models.WorkshopResponse;

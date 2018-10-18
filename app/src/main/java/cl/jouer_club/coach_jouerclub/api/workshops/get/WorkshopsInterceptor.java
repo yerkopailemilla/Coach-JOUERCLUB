@@ -1,10 +1,10 @@
-package cl.jouer_club.coach_jouerclub.api.workshops;
+package cl.jouer_club.coach_jouerclub.api.workshops.get;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import cl.jouer_club.coach_jouerclub.BuildConfig;
-import cl.jouer_club.coach_jouerclub.api.workshops.WorkshopService;
+import cl.jouer_club.coach_jouerclub.api.workshops.get.WorkshopService;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
