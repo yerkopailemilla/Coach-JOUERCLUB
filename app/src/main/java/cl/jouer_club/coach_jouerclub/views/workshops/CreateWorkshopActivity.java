@@ -11,7 +11,9 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,8 +33,10 @@ import cl.jouer_club.coach_jouerclub.utils.Tools;
 public class CreateWorkshopActivity extends AppCompatActivity {
 
     private BottomSheetBehavior bottomSheetBehavior;
-    private TextView lat_workshop, lng_workshop;
     private Toolbar toolbar;
+    private TextView textView_participants;
+    private SeekBar seekBar_participants;
+    private EditText editText_description;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,22 +66,6 @@ public class CreateWorkshopActivity extends AppCompatActivity {
 
         // change the state of the bottom sheet
         bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
-        lat_workshop = findViewById(R.id.lat_workshop);
-        lng_workshop = findViewById(R.id.lng_workshop);
-
-        // set callback for changes
-        /*bottomSheetBehavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
-            @Override
-            public void onStateChanged(@NonNull View bottomSheet, int newState) {
-
-            }
-
-            @Override
-            public void onSlide(@NonNull View bottomSheet, float slideOffset) {
-
-            }
-        });*/
-
         (findViewById(R.id.fab_directions)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -86,7 +74,29 @@ public class CreateWorkshopActivity extends AppCompatActivity {
             }
         });
 
-        Toast.makeText(getApplicationContext(), "Desliza hacia arriba para completar los campos.", Toast.LENGTH_LONG).show();
+        textView_participants = findViewById(R.id.textView_participants);
+        seekBar_participants = findViewById(R.id.seekBar_participants);
+        editText_description = findViewById(R.id.editText_description);
+
+        seekBar_participants.getProgressDrawable().setColorFilter(getResources().getColor(R.color.amber_400), PorterDuff.Mode.SRC_ATOP);
+        seekBar_participants.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                textView_participants.setText(String.valueOf(progress));
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+
+        Toast.makeText(CreateWorkshopActivity.this, "Desliza hacia arriba para completar los campos.", Toast.LENGTH_LONG).show();
 
     }
 
@@ -119,12 +129,7 @@ public class CreateWorkshopActivity extends AppCompatActivity {
 
                     @Override
                     public void onMarkerDrag(Marker marker) {
-                        String lat = String.valueOf(marker.getPosition().latitude);
-                        String lng = String.valueOf(marker.getPosition().longitude);
-                        toolbar.setTitle(lat+" - "+lng);
 
-                        lat_workshop.setText(lat);
-                        lng_workshop.setText(lng);
                     }
 
                     @Override
@@ -132,9 +137,6 @@ public class CreateWorkshopActivity extends AppCompatActivity {
                         String lat = String.valueOf(marker.getPosition().latitude);
                         String lng = String.valueOf(marker.getPosition().longitude);
                         toolbar.setTitle(lat+" - "+lng);
-
-                        lat_workshop.setText(lat);
-                        lng_workshop.setText(lng);
                     }
                 });
 

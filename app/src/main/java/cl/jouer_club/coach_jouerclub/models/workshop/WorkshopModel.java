@@ -1,11 +1,14 @@
-package cl.jouer_club.coach_jouerclub.models;
+package cl.jouer_club.coach_jouerclub.models.workshop;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class WorkshopModel {
+import cl.jouer_club.coach_jouerclub.models.Link;
+
+public class WorkshopModel implements Serializable {
 
     @SerializedName("identificador")
     @Expose

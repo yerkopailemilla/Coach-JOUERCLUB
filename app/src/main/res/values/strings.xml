@@ -5,6 +5,9 @@
     <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">
         AIzaSyAwTsK7d8uXOt2ddkyrcbyQY9Z3RSkA8bA
     </string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
     <!--KEY RELEASE-->
     <!--<string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">
     </string>-->

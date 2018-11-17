@@ -12,20 +12,20 @@ import android.widget.Toast;
 import android.support.design.widget.BottomNavigationView;
 
 import cl.jouer_club.coach_jouerclub.R;
+import cl.jouer_club.coach_jouerclub.data.SessionsPreferences;
 import cl.jouer_club.coach_jouerclub.utils.Tools;
-import cl.jouer_club.coach_jouerclub.views.ProfileFragment;
+import cl.jouer_club.coach_jouerclub.views.profile.ProfileFragment;
 import cl.jouer_club.coach_jouerclub.views.workshops.WorkshopFragment;
 
 public class MainActivity extends AppCompatActivity {
 
     private void initToolbar() {
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setNavigationIcon(R.drawable.ic_menu);
-        toolbar.getNavigationIcon().setColorFilter(getResources().getColor(R.color.colorPrimary), PorterDuff.Mode.SRC_ATOP);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Jouer-CLUB");
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar.setNavigationIcon(R.mipmap.logo);
+        String nick = new SessionsPreferences(getApplicationContext()).getSessionNickname();
+        toolbar.setTitle("Bienvenido, " + nick);
         toolbar.setTitleTextColor(getResources().getColor(R.color.colorPrimary));
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        setSupportActionBar(toolbar);
         Tools.setSystemBarColor(this, R.color.grey_5);
         Tools.setSystemBarLight(this);
     }

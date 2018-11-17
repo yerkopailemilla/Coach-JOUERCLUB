@@ -34,8 +34,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingStart="@dimen/spacing_mlarge"
+                android:paddingBottom="@dimen/spacing_mlarge"
                 android:text="Completa los campos"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/grey_10" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -43,54 +49,62 @@
                 android:orientation="vertical"
                 android:padding="@dimen/spacing_large">
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/grey_10" />
-
-                <RelativeLayout
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="@dimen/spacing_smlarge">
+                    android:padding="@dimen/spacing_small">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Ingresa una cantidad máxima de participantes:"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
+
+                        <View
+                            android:layout_width="5dp"
+                            android:layout_height="0dp"/>
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/textView_participants"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
+
+                    </LinearLayout>
+
+                    <SeekBar
+                        android:id="@+id/seekBar_participants"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:max="20"
+                        android:padding="@dimen/spacing_mlarge"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/spacing_small">
 
                     <android.support.v7.widget.AppCompatTextView
-                        android:id="@+id/textView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Nombre del recinto"
+                        android:text="Ingresa una descripción de tu taller"
                         android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
 
-                    <android.support.v7.widget.AppCompatTextView
-                        android:id="@+id/lat_workshop"
-                        android:layout_width="150dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="15dp"
-                        android:background="@android:color/transparent"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:text="Selecciona un recinto..."
-                        android:textColor="@color/grey_90" />
+                  <EditText
+                      android:id="@+id/editText_description"
+                      android:layout_width="match_parent"
+                      android:layout_height="match_parent" />
 
-                    <android.support.v7.widget.AppCompatTextView
-                        android:id="@+id/textView2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="200dp"
-                        android:text="¿En que cancha?"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
-
-                    <android.support.v7.widget.AppCompatTextView
-                        android:id="@+id/lng_workshop"
-                        android:layout_width="150dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="200dp"
-                        android:layout_marginTop="15dp"
-                        android:background="@android:color/transparent"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:textColor="@color/grey_90"
-                        android:text="Selecciona una cancha..."/>
-
-                </RelativeLayout>
+                </LinearLayout>
 
                 <View
                     android:layout_width="match_parent"
@@ -128,7 +142,7 @@
                             android:layout_weight="1">
 
                             <android.support.v7.widget.AppCompatButton
-                                android:id="@+id/btnDateMeeting"
+                                android:id="@+id/btnDateWorkshop"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_centerInParent="true"
@@ -206,7 +220,7 @@
                 android:layout_height="match_parent">
 
                 <android.support.v7.widget.AppCompatButton
-                    android:id="@+id/btnCreateMeeting"
+                    android:id="@+id/btnCreateWorkshop"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="20dp"

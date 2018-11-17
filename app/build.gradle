@@ -35,16 +35,18 @@ dependencies {
     implementation 'com.android.support:recyclerview-v7:27.1.1'
     implementation 'com.android.support:support-vector-drawable:27.1.1'
 
-
     // retrofit ----------------------------------------------------------------------------------
     implementation 'com.squareup.retrofit2:retrofit:2.4.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
     implementation 'com.squareup.okhttp3:logging-interceptor:3.6.0'
-
 
     // google maps library -----------------------------------------------------------------------
     implementation 'com.google.android.gms:play-services-maps:16.0.0'
     implementation 'com.google.android.gms:play-services-places:16.0.0'
 
+    // clean code architecture libraries -----------------------------------------------------------------------
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.2'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
     implementation 'com.github.ybq:Android-SpinKit:1.1.0'
 }

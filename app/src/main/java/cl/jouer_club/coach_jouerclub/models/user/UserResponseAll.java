@@ -1,28 +1,30 @@
-package cl.jouer_club.coach_jouerclub.models;
+package cl.jouer_club.coach_jouerclub.models.user;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class WorkshopResponse {
+import cl.jouer_club.coach_jouerclub.models.Meta;
+
+public class UserResponseAll {
 
     @SerializedName("data")
     @Expose
-    private List<WorkshopModel> workshops = null;
+    private List<UserModel> users = null;
     @SerializedName("meta")
     @Expose
     private Meta meta;
 
-    public WorkshopResponse() {
+    public UserResponseAll() {
     }
 
-    public List<WorkshopModel> getWorkshops() {
-        return workshops;
+    public List<UserModel> getUsers() {
+        return users;
     }
 
-    public void setWorkshops(List<WorkshopModel> workshops) {
-        this.workshops = workshops;
+    public void setUsers(List<UserModel> users) {
+        this.users = users;
     }
 
     public Meta getMeta() {

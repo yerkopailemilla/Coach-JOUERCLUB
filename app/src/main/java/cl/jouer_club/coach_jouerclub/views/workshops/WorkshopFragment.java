@@ -10,7 +10,6 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,8 +18,8 @@ import java.util.List;
 
 import cl.jouer_club.coach_jouerclub.R;
 import cl.jouer_club.coach_jouerclub.adapters.WorkshopsAdapter;
-import cl.jouer_club.coach_jouerclub.api.workshops.get.GetWorkshops;
-import cl.jouer_club.coach_jouerclub.models.WorkshopModel;
+import cl.jouer_club.coach_jouerclub.api.workshops.getAll.GetWorkshops;
+import cl.jouer_club.coach_jouerclub.models.workshop.WorkshopModel;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -47,9 +46,10 @@ public class WorkshopFragment extends Fragment {
         FloatingActionButton fab_create_workshop = view.findViewById(R.id.fab_create_workshop);
         new DisplayWorkshops().execute();
         fab_create_workshop.setOnClickListener(goToCreateWorkshop);
+
     }
 
-    private class DisplayWorkshops extends GetWorkshops {
+    private class DisplayWorkshops extends GetWorkshops implements WorkshopClickedListener {
 
         private ProgressDialog dialog;
 
@@ -71,11 +71,20 @@ public class WorkshopFragment extends Fragment {
             recylerVWorkshops.setHasFixedSize(true);
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
             recylerVWorkshops.setLayoutManager(linearLayoutManager);
-            WorkshopsAdapter workshopsAdapter = new WorkshopsAdapter(workshopModels);
-            recylerVWorkshops.setAdapter(workshopsAdapter);
-            workshopsAdapter.notifyDataSetChanged();
-            dialog.dismiss();
-            Log.d("WORKSHOPS", String.valueOf(workshopModels.size()));
+            if (workshopModels != null && workshopModels.size() > 0){
+                WorkshopsAdapter workshopsAdapter = new WorkshopsAdapter(workshopModels, this);
+                recylerVWorkshops.setAdapter(workshopsAdapter);
+                workshopsAdapter.notifyDataSetChanged();
+                dialog.dismiss();
+            }
+        }
+
+
+        @Override
+        public void workshopClicked(WorkshopModel workshopModel) {
+            Intent goToDetail = new Intent(getContext(), DetailWorkshopActivity.class);
+            goToDetail.putExtra(DetailWorkshopActivity.WORKSHOP, workshopModel);
+            startActivity(goToDetail);
         }
     }
 

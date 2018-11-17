@@ -3,7 +3,9 @@ package cl.jouer_club.coach_jouerclub.models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Link {
+import java.io.Serializable;
+
+public class Link implements Serializable{
 
     @SerializedName("rel")
     @Expose
