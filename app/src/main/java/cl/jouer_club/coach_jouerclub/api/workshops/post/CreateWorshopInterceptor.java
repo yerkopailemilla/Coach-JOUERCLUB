@@ -1,36 +1,30 @@
-package cl.jouer_club.coach_jouerclub.api.users;
+package cl.jouer_club.coach_jouerclub.api.workshops.post;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
-import cl.jouer_club.coach_jouerclub.BuildConfig;
-import cl.jouer_club.coach_jouerclub.api.workshops.getAll.WorkshopService;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 import static cl.jouer_club.coach_jouerclub.api.workshops.getAll.WorkshopsInterceptor.API_TOKEN;
 import static cl.jouer_club.coach_jouerclub.api.workshops.getAll.WorkshopsInterceptor.BASE_URL;
 
-public class GetUsersInterceptor {
+public class CreateWorshopInterceptor {
 
-    public UserService get(){
+    public CreateWorkshopService postCreateWorkshop() {
+    /*Mostly the same of what is done with post, but this time the waiting time for response after post is increase
+    and, very important, there are no retry. Here there is a 1 min waiting period, if for any reason the server did
+    got processed the request but took 1 min and 1 sec to response, you dont want to retry cause it would create
+    another object duplicated. One min waiting time for a server is a lot, it should work with this basis. If it doesnt
+    then dont make it worse by doing retry*/
         OkHttpClient.Builder httpClient = new OkHttpClient.Builder()
                 .connectTimeout(60, TimeUnit.SECONDS)
                 .readTimeout(60, TimeUnit.SECONDS)
                 .writeTimeout(60, TimeUnit.SECONDS);
-
-        HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
-        logging.setLevel(HttpLoggingInterceptor.Level.BODY);
-
-        //Debug de requests/responses solo en ambiente de desarrollo
-        if (BuildConfig.DEBUG){
-            httpClient.addInterceptor(logging);
-        }
 
         httpClient.addInterceptor(new Interceptor() {
             @Override
@@ -56,7 +50,8 @@ public class GetUsersInterceptor {
                 .client(client)
                 .build();
 
-        UserService service = interceptor.create(UserService.class);
+        CreateWorkshopService service = interceptor.create(CreateWorkshopService.class);
         return service;
     }
+
 }

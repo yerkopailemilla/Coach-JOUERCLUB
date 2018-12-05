@@ -32,4 +32,11 @@ public class SessionsPreferences {
         SharedPreferences sPref = context.getSharedPreferences(USER_SESSION, Context.MODE_PRIVATE);
         return sPref.getString(USER_SESSION_NICKNAME, null);
     }
+
+    public void removeUserSession() {
+        SharedPreferences sPref = context.getSharedPreferences(USER_SESSION, Context.MODE_PRIVATE);
+        SharedPreferences.Editor prefEditor = sPref.edit();
+        prefEditor.clear();
+        prefEditor.apply();
+    }
 }

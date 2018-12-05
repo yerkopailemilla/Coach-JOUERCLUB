@@ -25,6 +25,7 @@
                 android:id="@+id/image"
                 android:layout_width="100dp"
                 android:layout_height="match_parent"
+                android:tint="@color/colorPrimary"
                 android:src="@drawable/ic_fitness_center" />
 
             <LinearLayout
@@ -62,27 +63,32 @@
                     android:background="@color/grey_10" />
 
                 <LinearLayout
+                    android:id="@+id/workshop_detail_btn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/spacing_medium"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:clickable="true">
 
-                    <Button
-                        android:id="@+id/workshop_detail_btn"
-                        style="@style/Base.Widget.AppCompat.Button.Borderless"
+                    <android.support.v7.widget.AppCompatImageButton
+                        android:layout_width="?attr/actionBarSize"
+                        android:layout_height="?attr/actionBarSize"
+                        android:background="@android:color/transparent"
+                        android:tint="@color/colorPrimary"
+                        app:srcCompat="@drawable/ic_visibility"
+                        android:clickable="false"/>
+
+                    <android.support.v7.widget.AppCompatTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="DETALLES"
-                        android:textColor="@color/grey_80" />
+                        android:layout_gravity="center_vertical"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1"
+                        android:textColor="@color/colorPrimary" />
 
-                    <Button
-                        style="@style/Base.Widget.AppCompat.Button.Borderless"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Otra acción?"
-                        android:textColor="@color/grey_80" />
 
                 </LinearLayout>
+
             </LinearLayout>
 
         </LinearLayout>

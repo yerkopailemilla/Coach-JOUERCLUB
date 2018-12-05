@@ -19,6 +19,13 @@ public class WorkshopModel implements Serializable {
     @SerializedName("descripcion")
     @Expose
     private String descripcion;
+    @SerializedName("ubication")
+    @Expose
+    private String ubication;
+
+    @SerializedName("jugadores")
+    @Expose
+    private int jugadores;
     @SerializedName("latitud")
     @Expose
     private String latitud;
@@ -36,7 +43,7 @@ public class WorkshopModel implements Serializable {
     private String estado;
     @SerializedName("instructor")
     @Expose
-    private Integer instructor;
+    private int instructor;
     @SerializedName("fechaCreacion")
     @Expose
     private String fechaCreacion;
@@ -51,6 +58,26 @@ public class WorkshopModel implements Serializable {
     private List<Link> links = null;
 
     public WorkshopModel() {
+    }
+
+    public WorkshopModel(String nombre,
+                         String descripcion,
+                         int jugadores,
+                         String latitud,
+                         String longitud,
+                         String inicio,
+                         String termino,
+                         String estado,
+                         int instructor) {
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.jugadores = jugadores;
+        this.latitud = latitud;
+        this.longitud = longitud;
+        this.inicio = inicio;
+        this.termino = termino;
+        this.estado = estado;
+        this.instructor = instructor;
     }
 
     public int getIdentificador() {
@@ -75,6 +102,22 @@ public class WorkshopModel implements Serializable {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+    public String getUbication() {
+        return ubication;
+    }
+
+    public void setUbication(String ubication) {
+        this.ubication = ubication;
+    }
+
+    public int getJugadores() {
+        return jugadores;
+    }
+
+    public void setJugadores(int jugadores) {
+        this.jugadores = jugadores;
     }
 
     public String getLatitud() {
@@ -117,11 +160,11 @@ public class WorkshopModel implements Serializable {
         this.estado = estado;
     }
 
-    public Integer getInstructor() {
+    public int getInstructor() {
         return instructor;
     }
 
-    public void setInstructor(Integer instructor) {
+    public void setInstructor(int instructor) {
         this.instructor = instructor;
     }
 

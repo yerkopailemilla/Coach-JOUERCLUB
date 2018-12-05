@@ -70,7 +70,8 @@
             android:maxLines="1"
             android:singleLine="true"
             android:textColor="@color/colorPrimary"
-            android:theme="@style/EditText.Grey" />
+            android:theme="@style/EditText.Grey"
+            android:text="cpqm07@gmail.com"/>
 
         <View
             android:layout_width="0dp"
@@ -95,7 +96,8 @@
             android:maxLines="1"
             android:singleLine="true"
             android:textColor="@color/colorPrimary"
-            android:theme="@style/EditText.Grey" />
+            android:theme="@style/EditText.Grey"
+            android:text="secret"/>
 
         <View
             android:layout_width="0dp"
@@ -148,6 +150,7 @@
             android:layout_width="0dp"
             android:layout_height="@dimen/spacing_small" />
 
+<!--
         <LinearLayout
             android:id="@+id/sign_up_for_account"
             android:layout_width="match_parent"
@@ -191,6 +194,7 @@
             </RelativeLayout>
 
         </LinearLayout>
+-->
 
         <View
             android:layout_width="0dp"

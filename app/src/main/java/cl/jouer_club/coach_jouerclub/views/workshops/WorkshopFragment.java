@@ -2,6 +2,7 @@ package cl.jouer_club.coach_jouerclub.views.workshops;
 
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -20,6 +21,7 @@ import cl.jouer_club.coach_jouerclub.R;
 import cl.jouer_club.coach_jouerclub.adapters.WorkshopsAdapter;
 import cl.jouer_club.coach_jouerclub.api.workshops.getAll.GetWorkshops;
 import cl.jouer_club.coach_jouerclub.models.workshop.WorkshopModel;
+import cl.jouer_club.coach_jouerclub.views.workshops.create_workshops.CreateWorkshopActivity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -41,17 +43,17 @@ public class WorkshopFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
         recylerVWorkshops = view.findViewById(R.id.recylerVWorkshops);
-        FloatingActionButton fab_create_workshop = view.findViewById(R.id.fab_create_workshop);
-        new DisplayWorkshops().execute();
-        fab_create_workshop.setOnClickListener(goToCreateWorkshop);
-
+        new DisplayWorkshops(getContext()).execute();
     }
 
     private class DisplayWorkshops extends GetWorkshops implements WorkshopClickedListener {
 
         private ProgressDialog dialog;
+
+        public DisplayWorkshops(Context context) {
+            super(context);
+        }
 
         @Override
         protected void onPreExecute() {
@@ -87,13 +89,5 @@ public class WorkshopFragment extends Fragment {
             startActivity(goToDetail);
         }
     }
-
-    View.OnClickListener goToCreateWorkshop = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            Intent toCreateWorkshop = new Intent(getContext(), CreateWorkshopActivity.class);
-            startActivity(toCreateWorkshop);
-        }
-    };
 
 }

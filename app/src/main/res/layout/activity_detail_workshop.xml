@@ -72,7 +72,6 @@
                     android:id="@+id/detailWorkshop_name_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Nature Park"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Title"
                     android:textColor="@android:color/white" />
 
@@ -173,12 +172,10 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="vertical"
-                            android:paddingBottom="@dimen/spacing_small"
-                            android:paddingTop="@dimen/spacing_small">
+                            android:padding="@dimen/spacing_mlarge">
 
-                            <fragment
-                                android:id="@+id/fragmentWorkshopParticipants"
-                                android:name="cl.jouer_club.coach_jouerclub.views.WorkshopParticipantsFragment"
+                            <android.support.v7.widget.RecyclerView
+                                android:id="@+id/recylerVWorkshopParticipants"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"/>
 
@@ -276,18 +273,18 @@
                             android:layout_height="@dimen/spacing_xmlarge"
                             android:background="@android:color/transparent"
                             android:tint="@color/grey_40"
-                            app:srcCompat="@drawable/ic_fitness_center" />
+                            app:srcCompat="@drawable/ic_event" />
 
                         <View
                             android:layout_width="@dimen/spacing_middle"
                             android:layout_height="0dp" />
 
                         <TextView
+                            android:id="@+id/detailWorkshop_date_tv"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center_vertical"
                             android:minHeight="@dimen/spacing_xmlarge"
-                            android:text="Food &amp; Cafe"
                             android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
                             android:textColor="@color/grey_40" />
 
@@ -304,18 +301,18 @@
                             android:layout_height="@dimen/spacing_xmlarge"
                             android:background="@android:color/transparent"
                             android:tint="@color/grey_40"
-                            app:srcCompat="@drawable/ic_fitness_center" />
+                            app:srcCompat="@drawable/ic_schedule" />
 
                         <View
                             android:layout_width="@dimen/spacing_middle"
                             android:layout_height="0dp" />
 
                         <TextView
+                            android:id="@+id/detailWorkshop_times_tv"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center_vertical"
                             android:minHeight="@dimen/spacing_xmlarge"
-                            android:text="Fresh Air"
                             android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
                             android:textColor="@color/grey_40" />
 
@@ -332,21 +329,30 @@
                             android:layout_height="@dimen/spacing_xmlarge"
                             android:background="@android:color/transparent"
                             android:tint="@color/grey_40"
-                            app:srcCompat="@drawable/ic_fitness_center" />
+                            app:srcCompat="@drawable/ic_peoples" />
 
                         <View
                             android:layout_width="@dimen/spacing_middle"
                             android:layout_height="0dp" />
 
                         <TextView
-                            android:id="@+id/textView10"
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center_vertical"
                             android:minHeight="@dimen/spacing_xmlarge"
-                            android:text="Parking Area"
+                            android:text="Cantidad máx. de participantes: "
                             android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
                             android:textColor="@color/grey_40" />
+
+                        <TextView
+                            android:id="@+id/detailWorkshop_participants_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                            android:textColor="@color/grey_40" />
+
+
 
                     </LinearLayout>
 
@@ -361,18 +367,18 @@
                             android:layout_height="@dimen/spacing_xmlarge"
                             android:background="@android:color/transparent"
                             android:tint="@color/grey_40"
-                            app:srcCompat="@drawable/ic_fitness_center" />
+                            app:srcCompat="@drawable/ic_info" />
 
                         <View
                             android:layout_width="@dimen/spacing_middle"
                             android:layout_height="0dp" />
 
                         <TextView
+                            android:id="@+id/detailWorkshop_description_tv"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center_vertical"
                             android:minHeight="@dimen/spacing_xmlarge"
-                            android:text="Cozy Canopy"
                             android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
                             android:textColor="@color/grey_40" />
 
@@ -383,10 +389,26 @@
 
             </android.support.v7.widget.CardView>
 
-
             <View
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/spacing_large" />
+                android:layout_height="@dimen/spacing_medium" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/btnDeleteWorkshop"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="20dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/btn_rounded_primary_dark"
+                    android:text="ELIMINAR TALLER"
+                    android:textColor="@android:color/white" />
+
+            </LinearLayout>
 
         </LinearLayout>
 

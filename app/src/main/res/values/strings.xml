@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Coach-JOUERCLUB</string>
+    <string name="app_name">Coach - JOUERCLUB</string>
 
     <!--KEY DEBUG-->
     <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">

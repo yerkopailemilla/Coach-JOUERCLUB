@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.List;
@@ -58,7 +59,7 @@ public class WorkshopsAdapter extends RecyclerView.Adapter<WorkshopsAdapter.Work
     public class WorkshopsViewHolder extends RecyclerView.ViewHolder{
 
         public TextView workshop_name_tv, workshop_description_tv;
-        public Button workshop_detail_btn;
+        public LinearLayout workshop_detail_btn;
 
         public WorkshopsViewHolder(View itemView) {
             super(itemView);

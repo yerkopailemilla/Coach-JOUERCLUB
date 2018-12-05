@@ -1,5 +1,6 @@
 package cl.jouer_club.coach_jouerclub.views.login;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,6 +13,7 @@ import cl.jouer_club.coach_jouerclub.R;
 import cl.jouer_club.coach_jouerclub.api.login.LoginToApp;
 import cl.jouer_club.coach_jouerclub.data.SessionsPreferences;
 import cl.jouer_club.coach_jouerclub.models.user.UserModel;
+import cl.jouer_club.coach_jouerclub.views.login.contract.LoginValidationContract;
 import cl.jouer_club.coach_jouerclub.views.main.MainActivity;
 
 public class LoginActivity extends AppCompatActivity {
@@ -35,7 +37,16 @@ public class LoginActivity extends AppCompatActivity {
         public void onClick(View v) {
             String email = login_email_tv.getText().toString();
             String password = login_password_tv.getText().toString();
-            new SignIn(email, password).execute();
+
+            if (email.trim().length() > 0){
+                if (password.trim().length() > 0){
+                    new SignIn(email, password).execute();
+                } else {
+                    Toast.makeText(LoginActivity.this, "Ingresa una contraseña.", Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                Toast.makeText(LoginActivity.this, "Ingresa un correo electrónico.", Toast.LENGTH_SHORT).show();
+            }
         }
     };
 

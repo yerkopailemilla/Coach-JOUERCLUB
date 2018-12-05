@@ -27,7 +27,7 @@
             android:screenOrientation="portrait"/>
 
         <activity
-            android:name=".views.workshops.CreateWorkshopActivity"
+            android:name=".views.workshops.create_workshops.CreateWorkshopActivity"
             android:screenOrientation="portrait"/>
 
         <activity

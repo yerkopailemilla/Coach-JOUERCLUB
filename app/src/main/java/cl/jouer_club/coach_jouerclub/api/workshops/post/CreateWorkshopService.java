@@ -7,7 +7,7 @@ import retrofit2.http.POST;
 
 public interface CreateWorkshopService {
 
-    @POST("workshop")
+    @POST("workshops")
     Call<WorkshopModel> createWorkshop(@Body WorkshopModel workshopModel);
 
 }

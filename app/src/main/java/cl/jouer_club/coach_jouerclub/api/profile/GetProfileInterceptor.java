@@ -1,10 +1,9 @@
-package cl.jouer_club.coach_jouerclub.api.users;
+package cl.jouer_club.coach_jouerclub.api.profile;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import cl.jouer_club.coach_jouerclub.BuildConfig;
-import cl.jouer_club.coach_jouerclub.api.workshops.getAll.WorkshopService;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -16,9 +15,9 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import static cl.jouer_club.coach_jouerclub.api.workshops.getAll.WorkshopsInterceptor.API_TOKEN;
 import static cl.jouer_club.coach_jouerclub.api.workshops.getAll.WorkshopsInterceptor.BASE_URL;
 
-public class GetUsersInterceptor {
+public class GetProfileInterceptor {
 
-    public UserService get(){
+    public GetProfileService get(){
         OkHttpClient.Builder httpClient = new OkHttpClient.Builder()
                 .connectTimeout(60, TimeUnit.SECONDS)
                 .readTimeout(60, TimeUnit.SECONDS)
@@ -56,7 +55,8 @@ public class GetUsersInterceptor {
                 .client(client)
                 .build();
 
-        UserService service = interceptor.create(UserService.class);
+        GetProfileService service = interceptor.create(GetProfileService.class);
         return service;
     }
+
 }
